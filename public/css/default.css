@@ -3,6 +3,7 @@ body {
     background-image: url('../img/header.png');
     background-repeat: no-repeat;
     background-position: center 10px;
+    font-family: Geneva,Tahoma,Verdana,sans-serif;
 }
 
 body > header {
@@ -25,13 +26,21 @@ body > header a:hover{
     background-color: #f0f0f0;
     width: 900px;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #3b4a52;
 }
-
+.post {
+    font-size: 18px;
+    line-height: 1.4em;
+}
 
 .article-title {
     color: #3b4a52;
     font-size: 24px;
     font-weight: 800;
+}
+
+article footer {
+    font-size: 12px;
+    text-align: right;
 }
