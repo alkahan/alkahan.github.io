@@ -1,7 +1,10 @@
 +++
-draft = true
+draft = false
 title = "Premier billet avec Hugo"
-date = 2014-08-18T02:56:49Z
+date = 2014-08-18T02:57:49Z
+
 +++
 
-"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Voici le premier billet de mon blog qui parlera, comme le montre le theme de ... Linux d'administration système de réseau. C'est dans ces domaines que j'ai le plus de chose à dire.
+
+J'espère que mes écrits profiterons à d'autres comme j'ai pu apprendre d'un certain nombre d'entre vous.
