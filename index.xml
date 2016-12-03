@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on Blog de Alkahan </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://blog.alkahan.net/index.xml</link>
+    <language>fr-FR</language>
+    
+    
+    <updated>Mon, 18 Aug 2014 02:56:49 UTC</updated>
+    
+    <item>
+      <title>Premier billet avec Hugo</title>
+      <link>http://blog.alkahan.net/post/first</link>
+      <pubDate>Mon, 18 Aug 2014 02:56:49 UTC</pubDate>
+      
+      <guid>http://blog.alkahan.net/post/first</guid>
+      <description>&lt;p&gt;&amp;ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&amp;rdquo;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>http://blog.alkahan.net/about</link>
+      <pubDate>Mon, 18 Aug 2014 02:56:09 UTC</pubDate>
+      
+      <guid>http://blog.alkahan.net/about</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;A headline&lt;/h2&gt;
+
+&lt;p&gt;Some contents&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
