@@ -14,8 +14,8 @@ pour le moteur et pour les règles.
 Le moteur de ClamAV fonctionne plutôt bien mais le logiciel peut paraitre en
 retrait dans la détection des malwares par rapport à certains acteurs du marché.
 
-Il existe plusieurs méthode de détections dans les Antivirus, mais celle qui est
-la plus utilisée et qui obtient les meilleures résultats est la détection par
+Il existe plusieurs méthodes de détection dans les antivirus, mais celle qui est
+la plus utilisée et qui obtient les meilleurs résultats est la détection par
 signature. Et c'est la base des signatures qui différencie les antivirus entre
 eux. Et c'est ce point que je propose d'améliorer.
 
@@ -95,6 +95,10 @@ main.cvd: version 57, sigs: 4218790, built on Thu Mar 17 00:17:06 2016
 Total number of signatures: 8962509
 ```
 
-Comme vous l'aurez remarqué, le nombre de sinature passe 5 181 844 à 8 962 509 !
+Comme vous l'aurez remarqué, le nombre de signature passe de 5 181 844 à 8 962 509 !
+
 A l'usage j'ai remarqué une meilleure détection des malwares PHP sur les
-serveurs ainsi que pour les spam
+serveurs ainsi que pour les e-mails.
+
+Notez que dans les bases de signatures que le script gère, certaines nécessitent une
+inscription, gratuite ou payante.
