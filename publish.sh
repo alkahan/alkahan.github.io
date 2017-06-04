@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-git checkout -b blog
+git checkout blog
+git rebase master
 hugo -t blog
 git add -f public
 git commit -m "publication"
