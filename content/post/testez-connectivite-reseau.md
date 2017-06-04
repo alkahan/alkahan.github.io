@@ -10,22 +10,22 @@ Lorsque l'on gère un réseau qui doit être accessible publiquement comme dans 
 - Est ce que je suis bien connecté avec le reste du monde ?
 - Qu'elle est la qualité de mon réseau ?
 
-Pratiquement on aime égalemen savoir si à un moment ou un autres certains internautes 
- éprouves des difficultés à nous joindre. 
+Pratiquement on aime égalemen savoir si à un moment ou un autres certains internautes
+ éprouves des difficultés à nous joindre.
 
-Pour répondre à ces questions nous allons devoir choisir une méthode de test 
+Pour répondre à ces questions nous allons devoir choisir une méthode de test
  ainsi que des cibles, comme on ne peut pas monitorer l'ensemble d'internet il faut alors faire des choix.
 
 ### Choix de la sonde
 
-Lorsque l'on pense à du monitoring réseau le première chose qui nous vient à 
+Lorsque l'on pense à du monitoring réseau le première chose qui nous vient à
 l'esprit est le protocol ICMP. Bien qu'il soit le plus courrant il n'est pas
  toujours le plus approprié. Certains serveurs qui hébergent des services sur
  Internet n'autorisent pas le ping, c'est par exemple le cas par défaut des
  machines Windows. Lorsque la cible est un routeur, le ping n'est pas toujours fiable,
- l'objectif premier de ce dernier est de traiter les paquets qui doivent être transmits. 
+ l'objectif premier de ce dernier est de traiter les paquets qui doivent être transmits.
  Répondre à un ping est donc secondaire pour lui et cela peut influer sur les résultats
  que l'on peut obtenir.
 
-Donc si 
+Donc si
 
