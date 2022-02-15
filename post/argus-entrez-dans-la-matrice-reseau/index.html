@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head><title>Argus: entrez dans la matrice réseau &ndash; Blog de Alkahan</title>
+<meta name="description" content="Blog d&#39;un admin système et utilisateur Linux depuis Redhat 5.2 (pas RHEL 5.2).">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+
+
+
+<link rel="stylesheet" href="http://blog.alkahan.net/css/colour/gruvbox-dark.css">
+<link rel="stylesheet" href="http://blog.alkahan.net/css/colour/dark-mode.css">
+<link rel="stylesheet" href="http://blog.alkahan.net/css/risotto.css">
+<link rel="stylesheet" href="http://blog.alkahan.net/css/custom.css">
+</head>
+
+    <body>
+        <div class="page">
+
+            <header class="page__header"><h1 class="page__logo"><a href="http://blog.alkahan.net/" class="page__logo-inner">Blog de Alkahan</a></h1>
+<nav class="page__nav main-nav">
+    <ul>
+    
+    
+    <li class="main-nav__item"><a class="nav-main-item" href="/about/" title="">About</a></li>
+    
+    <li class="main-nav__item"><a class="nav-main-item active" href="/post/" title="Posts">Posts</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section class="page__body">
+    <header class="content__header">
+        <h1>Argus: entrez dans la matrice réseau</h1>
+    </header>
+    <div class="content__body">
+        <p>Pour commencer, qu&rsquo;est-ce qu&rsquo;une matrice réseau ? c&rsquo;est un document qui
+représente les flux réseau qui sont établit au sein de votre réseau (flux
+internes) et/ou avec l&rsquo;extérieur (flux externe).</p>
+<p>Sur un réseau, les informations sont échangées sous forme de paquets, c&rsquo;est ce
+que vous pouvez visualiser à l&rsquo;aide d&rsquo;un outil comme wireshark par exemple. Mais
+lorsque l&rsquo;on souhaite avoir la vision de ce qui se passe sur le réseau, cette
+vue n&rsquo;est pas pratique, elle est trop précise, pas assez synthétique et lorsque
+l&rsquo;on souhaite mener une analyse ou tout simplement la stocker, les ressources en
+termes de temps de calcul ou de stockage deviennent vite conséquent. On va alors
+agréger les paquets entre eux afin de former un flux. Et c&rsquo;est l&rsquo;ensemble des
+flux qui constituent notre matrice.</p>
+<p>L&rsquo;agrégation peut se faire sur plusieurs critères, mais généralement on souhaite
+que cela corresponde aux connexions établies à travers le réseau.  Pour cela on
+utilise communément le 5-uplets suivant:</p>
+<ul>
+<li>protocole</li>
+<li>adresse IP source</li>
+<li>port source</li>
+<li>adresse IP destination</li>
+<li>port destination</li>
+</ul>
+<p>Maintenant, à quoi ça sert tout ça ? Eh bien à pas mal de choses. Dès qu&rsquo;il
+s&rsquo;agit de savoir ce qu&rsquo;il se passe sur son réseau, en dehors de cas spécifiques
+où on a besoin de déboguer au niveau des paquets, on va préférer utiliser la
+matrice. Bien sur la matrice n&rsquo;indique pas les cinq éléments que nous avons
+cités, elle va également contenir des métriques comme le nombre de paquets,
+la quantité de données échangées, la durée du flux et bien d&rsquo;autres encore. On
+peut donc établir une métrologie, faire l&rsquo;analyse d&rsquo;une attaque passée, vérifier
+si une personne qui tente de se connecter à votre réseau arrive jusqu&rsquo;à nous.</p>
+<p>C&rsquo;est bien beau tout ça mais comment on fait une matrice réseau ?  Il existe
+plusieurs outils dont les plus connus sont les protocoles netflow et sflow que
+l&rsquo;on retrouve dans la plupart des équipements réseau (routeur, swicth), mais
+vous l&rsquo;aurez compris nous allons parler d&rsquo;un autre outil :
+<a href="http://qosient.com/argus/">argus</a>. A ne pas confondre avec
+<a href="http://argus.tcp4me.com/">argus</a> qui est un outil de monitoring système et
+réseau.</p>
+<p>Argus peut utiliser des flux sflow ou netflow comme source, mais il peut
+également écouter sur une interface réseau à l&rsquo;aide de la libpcap pour
+construire la matrice. Dans ce mode il permet d&rsquo;acquérir plus de données:</p>
+<ul>
+<li>adresses MAC source et destination</li>
+<li>une partie des données utilisateurs</li>
+<li>calculer les pertes de paquet</li>
+<li>mesure du jitter</li>
+</ul>
+<p>L&rsquo;architecture est basée sur un serveur et un client. Le serveur va lire une
+source netflow, sflow ou pcap et générer la matrice argus en mémoire. Cette
+matrice peut ensuite être lues par un client qui sera utilisé pour l&rsquo;archivage
+sur disque par exemple ou pour visualiser les flux en temps réel.</p>
+<p>Pour lancer le serveur argus:</p>
+<pre tabindex="0"><code>argus -d
+</code></pre><p>parallèlement on peut lancer un client comme ratop, qui permet d&rsquo;afficher les
+flux en mettant les plus consommateur en premier.</p>
+<pre tabindex="0"><code>ratop -S 127.0.0.1
+</code></pre><p>Voici à quoi ressemble la sortie</p>
+<pre tabindex="0"><code>      StartTime      Flgs  Proto      SrcAddr  Sport Dir DstAddr  Dport  TotPkts   TotBytes State
+21:46:05.300859  e g         tcp    1.13.33.1.55056   -&gt; 1.0.10.28.http    20638   23377652   CON
+21:45:45.441610  *           tcp  100.1.119.1.54435   -&gt; 1.0.10.14.http    17260   22400768   FIN
+21:45:44.796263  e d         tcp   100.1.92.1.53479   -&gt; 197.0.3.7.hacl-*  13325   13518824   CON
+21:45:32.272255  * s t       tcp   197.0.85.1.44109   -&gt; 1.0.13.3.10229    12686   11539803   CON
+21:45:43.389782  * s t       tcp   197.0.85.1.58523   -&gt; 1.0.13.3.10229    11446   10358491   CON
+21:45:43.894009  e s         tcp     1.0.13.6.57438   -&gt; 197.0.223.1.ssh   10548    1706046   CON
+21:45:42.965458  * s t       tcp   197.0.85.1.61758   -&gt; 1.0.13.3.10229    10505    9498544   CON
+21:45:32.520107  * s t       tcp   197.0.85.1.37367   -&gt; 1.0.13.3.10229    10416    9462260   CON
+21:45:43.754303  * s t       tcp   197.0.85.1.46850   -&gt; 1.0.13.3.10229     9893    8866591   CON
+21:45:45.250917  * s t       tcp    1.8.106.1.45645   -&gt; 1.0.13.18.6595     9169    9323470   CON
+21:45:44.225946  * s t       tcp   197.0.85.1.13559   -&gt; 1.0.13.3.10229     8814    7848023   CON
+21:45:30.583562  e *         tcp    1.0.111.1.55295   -&gt; 1.0.10.4.http      7462    7286768   CON
+21:45:32.227044  e           tcp    1.3.112.1.56150   -&gt; 1.0.2.8.http       6879   12975066   FIN
+21:45:53.460738  e d         tcp   1.11.191.1.route*  -&gt; 1.0.11.43.http     5747    5608264   FIN
+21:46:15.771788  e dSt       tcp    1.17.74.1.60528   -&gt; 1.0.11.7.http      4972    5760077   CON
+21:45:32.801323  e d         tcp    1.4.130.1.44521   -&gt; 197.0.1.1.http     4310    5206092   CON
+21:45:32.732753  e d         tcp    1.1.163.1.24049   -&gt; 1.0.13.10.https    3507    3661509   FIN
+21:45:52.665569  e d         tcp   100.2.40.1.57428   -&gt; 1.0.2.16.https     3402    3464743   FIN
+</code></pre><p>On y retrouve les 5-uplets que nous avons évoqué au début de cet article, protocole, IP source, port source, IP destination,
+port destination. On a également la direction du flux le nombre de paquets et le
+nombre d&rsquo;octets échangés, et l&rsquo;état de la connexion.</p>
+<pre tabindex="0"><code>ARGUS_INTERFACE=any
+
+ARGUS_GO_PROMISCUOUS=yes
+ARGUS_GENERATE_RESPONSE_TIME_DATA=yes
+ARGUS_GENERATE_PACKET_SIZE=yes
+ARGUS_GENERATE_JITTER_DATA=yes
+ARGUS_GENERATE_MAC_DATA=yes
+ARGUS_GENERATE_APPBYTE_METRIC=yes
+ARGUS_GENERATE_TCP_PERF_METRIC=yes
+ARGUS_GENERATE_BIDIRECTIONAL_TIMESTAMPS=yes
+ARGUS_CAPTURE_DATA_LEN=32
+ARGUS_FILTER_OPTIMIZER=yes
+</code></pre>
+    </div>
+    <footer class="content__footer"></footer>
+
+            </section>
+
+            <section class="page__aside">
+                <div class="aside__about">
+<div class="aside__about">
+    <img class="about__logo" src="http://blog.alkahan.net/images/rice.svg" alt="Logo">
+<h1 class="about__title">Blog de Alkahan</h1>
+<p class="about__description">Blog d&rsquo;un admin système et utilisateur Linux depuis Redhat 5.2 (pas RHEL 5.2).</p>
+</div>
+
+
+<ul class="aside__social-links">
+    
+</ul>
+</div>
+                <hr>
+                <div class="aside__content">
+    
+    
+        <p>
+            
+            2016-12-08
+        </p>
+    
+
+                </div>
+            </section>
+
+            <footer class="page__footer"><p class="copyright"></p>
+<p class="advertisement">Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/joeroe/risotto">risotto</a>.</p>
+</footer>
+
+        </div>
+    </body>
+
+</html>

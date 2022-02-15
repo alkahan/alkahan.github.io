@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Test on Blog de Alkahan </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/tags/test/index.xml</link>
+    <language>fr-FR</language>
+    
+    
+    <updated>Mon, 24 Aug 2015 02:57:49 UTC</updated>
+    
+    <item>
+      <title>Testez la connectivité de votre réseau avec le reste d&#39;internet</title>
+      <link>http://localhost:1313/post/testez-connectivite-reseau</link>
+      <pubDate>Mon, 24 Aug 2015 02:57:49 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/testez-connectivite-reseau</guid>
+      <description>
+
+&lt;p&gt;Lorsque l&amp;rsquo;on gère un réseau qui doit être accessible publiquement comme dans le cas d&amp;rsquo;un hébergeur, on se pose alors les questions suivantes :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Est ce que je suis bien connecté avec le reste du monde ?&lt;/li&gt;
+&lt;li&gt;Qu&amp;rsquo;elle est la qualité de mon réseau ?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pratiquement on aime égalemen savoir si à un moment ou un autres certains internautes
+ éprouves des difficultés à nous joindre.&lt;/p&gt;
+
+&lt;p&gt;Pour répondre à ces questions nous allons devoir choisir une méthode de test
+ ainsi que des cibles, comme on ne peut pas monitorer l&amp;rsquo;ensemble d&amp;rsquo;internet il faut alors faire des choix.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Choix de la sonde&lt;/h3&gt;
+
+&lt;p&gt;Lorsque l&amp;rsquo;on pense à du monitoring réseau le première chose qui nous vient à
+l&amp;rsquo;esprit est le protocol ICMP. Bien qu&amp;rsquo;il soit le plus courrant il n&amp;rsquo;est pas
+ toujours le plus approprié. Certains serveurs qui hébergent des services sur
+ Internet n&amp;rsquo;autorisent pas le ping, c&amp;rsquo;est par exemple le cas par défaut des
+ machines Windows. Lorsque la cible est un routeur, le ping n&amp;rsquo;est pas toujours fiable,
+ l&amp;rsquo;objectif premier de ce dernier est de traiter les paquets qui doivent être transmits.
+ Répondre à un ping est donc secondaire pour lui et cela peut influer sur les résultats
+ que l&amp;rsquo;on peut obtenir.&lt;/p&gt;
+
+&lt;p&gt;Donc si&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

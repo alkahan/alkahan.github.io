@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog de Alkahan</title>
+    <link>http://blog.alkahan.net/post/</link>
+    <description>Recent content in Posts on Blog de Alkahan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 07 Jul 2017 14:44:40 +0100</lastBuildDate><atom:link href="http://blog.alkahan.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argus: entrez dans la matrice réseau</title>
+      <link>http://blog.alkahan.net/post/argus-entrez-dans-la-matrice-reseau/</link>
+      <pubDate>Thu, 08 Dec 2016 13:42:22 +0100</pubDate>
+      
+      <guid>http://blog.alkahan.net/post/argus-entrez-dans-la-matrice-reseau/</guid>
+      <description>&lt;p&gt;Pour commencer, qu&amp;rsquo;est-ce qu&amp;rsquo;une matrice réseau ? c&amp;rsquo;est un document qui
+représente les flux réseau qui sont établit au sein de votre réseau (flux
+internes) et/ou avec l&amp;rsquo;extérieur (flux externe).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Améliorer la détection de ClamAV</title>
+      <link>http://blog.alkahan.net/post/ameliorer-detection-clamav/</link>
+      <pubDate>Fri, 02 Dec 2016 16:08:54 +0100</pubDate>
+      
+      <guid>http://blog.alkahan.net/post/ameliorer-detection-clamav/</guid>
+      <description>&lt;p&gt;ClamAV est le seul Antivirus Open Source sur le marché, et l&amp;rsquo;un des rares qui
+fonctionne bien sous Linux.  Il a l&amp;rsquo;avantage d&amp;rsquo;être livré en standard avec la
+plupart des distributions du marché, et sa mise à jour est simple aussi bien
+pour le moteur et pour les règles.&lt;/p&gt;
+&lt;p&gt;Le moteur de ClamAV fonctionne plutôt bien mais le logiciel peut paraitre en
+retrait dans la détection des malwares par rapport à certains acteurs du marché.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Premier billet avec Hugo</title>
+      <link>http://blog.alkahan.net/post/first/</link>
+      <pubDate>Mon, 18 Aug 2014 02:57:49 +0000</pubDate>
+      
+      <guid>http://blog.alkahan.net/post/first/</guid>
+      <description>Voici le premier billet de mon blog qui parlera, comme le montre le theme de &amp;hellip; Linux d&amp;rsquo;administration système de réseau. C&amp;rsquo;est dans ces domaines que j&amp;rsquo;ai le plus de chose à dire.
+J&amp;rsquo;espère que mes écrits profiterons à d&amp;rsquo;autres comme j&amp;rsquo;ai pu apprendre d&amp;rsquo;un certain nombre d&amp;rsquo;entre vous.</description>
+    </item>
+    
+  </channel>
+</rss>
